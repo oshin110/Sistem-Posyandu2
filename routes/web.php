@@ -13,7 +13,7 @@ Route::get('/', function () {
     return view('index', compact('anaks'));
 });
 
-Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
