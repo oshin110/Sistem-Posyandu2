@@ -47,11 +47,15 @@
                                     <td>{{ $anak->berat_lahir }}</td>
                                     <td>{{ $anak->panjang_lahir }}</td>
                                     <td>
-                                        <a href="{{ route('anak.edit', $anak->id) }}" class="btn btn-outline">Edit</a>
+                                        <a href="{{ route('anak.edit', $anak->id) }}" class="btn btn-outline">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
                                         <form action="{{ route('anak.destroy', $anak->id) }}" method="POST" style="display:inline-block" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-outline">Hapus</button>
+                                            <button type="submit" class="btn btn-outline">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

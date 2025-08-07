@@ -51,7 +51,7 @@ class AnakController extends Controller
     public function edit(Anak $anak)
     {
         $ibu = Ibu::all();
-        return view('anak.edit', compact('anak', 'ibu'));
+        return view('admin.anak.edit', compact('anak', 'ibu'));
     }
 
     public function update(Request $request, Anak $anak)
