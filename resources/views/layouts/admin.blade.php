@@ -87,7 +87,7 @@
     <div class="logo">
         <i class="fas fa-baby"></i> <span>Admin Posyandu</span>
     </div>
-    <a href="{{ route('dashboard') }}" class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
+    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->is('admin.dashboard') ? 'active' : '' }}">
         <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
     </a>
     <a href="{{ route('ibu.index') }}" class="nav-link {{ request()->is('ibu*') ? 'active' : '' }}">

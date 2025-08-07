@@ -33,12 +33,12 @@ class IbuController extends Controller
 
     public function show(Ibu $ibu)
     {
-        return view('ibu.show', compact('ibu'));
+        return view('admin.ibu.show', compact('ibu'));
     }
 
     public function edit(Ibu $ibu)
     {
-        return view('ibu.edit', compact('ibu'));
+        return view('admin.ibu.edit', compact('ibu'));
     }
 
     public function update(Request $request, Ibu $ibu)
