@@ -32,7 +32,7 @@
                                     <span class="badge rounded-pill bg-success">Perempuan</span>
                                 @endif
                             </td>
-                            <td>{{ \Carbon\Carbon::parse($anak->tanggal_lahir)->age }} tahun</td>
+                            <td>{{ now()->year - $anak->tanggal_lahir->year }} tahun</td>
                             {{-- <td class="action-btn-group">
                                 <a href="{{ route('anak.show', $anak->id) }}" class="btn btn-info btn-sm" title="Detail">
                                     <i class="bi bi-eye-fill">Detail</i>
