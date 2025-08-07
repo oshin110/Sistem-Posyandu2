@@ -10,7 +10,7 @@ use App\Http\Controllers\ImunisasiController;
 use App\Http\Controllers\PenimbanganController;
 
 Route::get('/', function () {
-    $anaks = anak::all();
+    $anaks = anak::paginate(10);
     return view('index', compact('anaks'));
 });
 

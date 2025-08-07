@@ -25,6 +25,10 @@ class Anak extends Model
         'foto'
     ];
 
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+    ];
+
     public function ibu()
     {
         return $this->belongsTo(Ibu::class);

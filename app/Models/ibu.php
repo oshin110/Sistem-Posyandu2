@@ -22,6 +22,10 @@ class Ibu extends Model
         'tanggal_persalinan'
     ];
 
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+    ];
+
     public function anak()
     {
         return $this->hasMany(Anak::class);
