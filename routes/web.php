@@ -22,11 +22,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('anak', AnakController::class);
     Route::resource('ibu', IbuController::class);
     Route::resource('penimbangan', PenimbanganController::class);
     // Tambahkan rute untuk Penimbangan, Imunisasi, dan lainnya
-// });
+});
 
 require __DIR__.'/auth.php';

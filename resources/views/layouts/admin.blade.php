@@ -96,7 +96,9 @@
     <a href="{{ route('anak.index') }}" class="nav-link {{ request()->is('anak*') ? 'active' : '' }}">
         <i class="fas fa-baby"></i> <span>Data Anak</span>
     </a>
-    <a href="#" class="nav-link"><i class="fas fa-weight"></i> <span>Penimbangan</span></a>
+    <a href="{{ route('penimbangan.index') }}" class="nav-link {{ request()->is('penimbangan*') ? 'active' : '' }}">
+        <i class="fas fa-weight"></i> <span>Data Penimbangan</span>
+    </a>
 
 </div>
 
