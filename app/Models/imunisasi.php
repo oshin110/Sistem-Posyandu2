@@ -6,13 +6,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Imunisasi extends Model
 {
-    use SoftDeletes;
 
     protected $fillable = [
         'anak_id',
         'jenis_imunisasi',
         'tanggal',
         'keterangan'
+    ];
+
+    protected $casts = [
+        'tanggal' => 'date',
     ];
 
     public function anak()

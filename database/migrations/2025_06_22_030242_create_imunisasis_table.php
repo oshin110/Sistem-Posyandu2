@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('imunisasis', function (Blueprint $table) {
             $table->id();
-            // $table->
+            $table->foreignId('anak_id')->constrained('anak')->onDelete('cascade');
+            $table->string('jenis_imunisasi');
+            $table->date('tanggal');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

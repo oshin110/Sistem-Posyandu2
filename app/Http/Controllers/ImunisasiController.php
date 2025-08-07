@@ -2,64 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\imunisasi;
+use App\Models\Imunisasi;
+use App\Models\Anak;
 use Illuminate\Http\Request;
 
 class ImunisasiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $imunisasis = Imunisasi::with('anak')->latest()->paginate(10);
+        return view('admin.imunisasi.index', compact('imunisasis'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $anaks = Anak::all();
+        return view('admin.imunisasi.create', compact('anaks'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'anak_id' => 'required|exists:anak,id',
+            'jenis_imunisasi' => 'required|string|max:255',
+            'tanggal' => 'required|date',
+            'keterangan' => 'nullable|string',
+        ]);
+
+        Imunisasi::create($request->all());
+
+        return redirect()->route('imunisasi.index')->with('success', 'Data imunisasi berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(imunisasi $imunisasi)
+    public function show(Imunisasi $imunisasi)
     {
-        //
+        return view('admin.imunisasi.show', compact('imunisasi'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(imunisasi $imunisasi)
+    public function edit(Imunisasi $imunisasi)
     {
-        //
+        $anaks = Anak::all();
+        return view('admin.imunisasi.edit', compact('imunisasi', 'anaks'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, imunisasi $imunisasi)
+    public function update(Request $request, Imunisasi $imunisasi)
     {
-        //
+        $request->validate([
+            'anak_id' => 'required|exists:anak,id',
+            'jenis_imunisasi' => 'required|string|max:255',
+            'tanggal' => 'required|date',
+            'keterangan' => 'nullable|string',
+        ]);
+
+        $imunisasi->update($request->all());
+
+        return redirect()->route('imunisasi.index')->with('success', 'Data imunisasi berhasil diperbarui.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(imunisasi $imunisasi)
+    public function destroy(Imunisasi $imunisasi)
     {
-        //
+        $imunisasi->delete();
+        return redirect()->route('imunisasi.index')->with('success', 'Data imunisasi berhasil dihapus.');
     }
 }

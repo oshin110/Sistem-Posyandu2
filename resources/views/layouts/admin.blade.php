@@ -99,6 +99,9 @@
     <a href="{{ route('penimbangan.index') }}" class="nav-link {{ request()->is('penimbangan*') ? 'active' : '' }}">
         <i class="fas fa-weight"></i> <span>Data Penimbangan</span>
     </a>
+    <a href="{{ route('imunisasi.index') }}" class="nav-link {{ request()->is('imunisasi*') ? 'active' : '' }}">
+        <i class="fas fa-syringe"></i> <span>Data Imunisasi</span>
+    </a>
 
 </div>
 
